@@ -1,0 +1,9 @@
+<section class="empty">
+  <div class="icon" aria-hidden="true">RM</div>
+  <h3>{{ title() }}</h3>
+  <p>{{ description() }}</p>
+
+  @if (actionLabel()) {
+    <button type="button" (click)="action.emit()">{{ actionLabel() }}</button>
+  }
+</section>

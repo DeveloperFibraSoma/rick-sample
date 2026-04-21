@@ -1,0 +1,47 @@
+.hero {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+img {
+  width: 14rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.copy {
+  display: grid;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  justify-self: start;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: var(--surface);
+  cursor: pointer;
+  margin-top: 0.4rem;
+}

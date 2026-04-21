@@ -1,0 +1,46 @@
+<app-page-header
+  eyebrow="Catalog"
+  title="Characters"
+  description="Paginated catalog backed by a generic API client with a structured in-memory fallback."
+></app-page-header>
+
+<section class="toolbar">
+  <input
+    type="search"
+    placeholder="Filter by name"
+    [value]="store.searchTerm()"
+    (input)="store.setSearchTerm(($any($event.target)).value)"
+  />
+
+  <select [value]="store.status()" (change)="onStatusChange(($any($event.target)).value)">
+    @for (status of statuses; track status) {
+      <option [value]="status">{{ status }}</option>
+    }
+  </select>
+</section>
+
+@if (store.loading()) {
+  <app-loading-state message="Loading characters..." />
+} @else if (store.error()) {
+  <app-empty-state
+    title="Characters unavailable"
+    [description]="store.error()!"
+    actionLabel="Retry"
+    (action)="store.reload()"
+  />
+} @else if (store.items().length === 0) {
+  <app-empty-state title="No results" description="The current filters did not match any character." />
+} @else {
+  <section class="grid">
+    @for (character of store.items(); track character.id) {
+      <app-character-card
+        [character]="character"
+        [isFavorite]="store.isFavorite(character.id)"
+        (favorite)="toggleFavorite($event.id)"
+        (open)="openCharacter($event)"
+      />
+    }
+  </section>
+
+  <app-pagination [(currentPage)]="currentPage" [totalPages]="store.totalPages()" />
+}

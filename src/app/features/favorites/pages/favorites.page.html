@@ -1,0 +1,23 @@
+<app-page-header
+  eyebrow="Local state"
+  title="Favorites"
+  description="A pure signal-backed collection stored in memory and reset on app refresh."
+></app-page-header>
+
+@if (store.favoriteCount() === 0) {
+  <app-empty-state
+    title="No favorites yet"
+    description="Mark characters from the list or detail view to populate this section."
+  />
+} @else {
+  <section class="grid">
+    @for (item of store.items(); track item.id) {
+      <app-character-card
+        [character]="item"
+        [isFavorite]="true"
+        (favorite)="store.toggle($event)"
+        (open)="openCharacter($event)"
+      />
+    }
+  </section>
+}

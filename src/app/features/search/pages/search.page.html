@@ -1,0 +1,24 @@
+<app-page-header
+  eyebrow="Realtime"
+  title="Search"
+  description="Debounced search with signal-backed suggestions and typed data access."
+></app-page-header>
+
+<section class="search-box">
+  <label for="search">Character name</label>
+  <input id="search" type="text" [formControl]="control" placeholder="Start typing a name..." />
+  <p class="hint">Minimum 2 characters. Suggestions update automatically.</p>
+</section>
+
+@if (store.suggestions().length === 0 && store.hasQuery()) {
+  <app-empty-state title="No matches" description="Try another name or open the list view to browse all records." />
+} @else {
+  <section class="suggestions">
+    @for (item of store.suggestions(); track item.id) {
+      <button type="button" class="suggestion" (click)="openCharacter(item.id)">
+        <span>{{ item.name }}</span>
+        <small>{{ item.status | characterStatus }} · {{ item.species }}</small>
+      </button>
+    }
+  </section>
+}

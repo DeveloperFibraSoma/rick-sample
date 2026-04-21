@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.description {
+  margin: 0.6rem 0 0;
+  color: var(--color-muted);
+  max-width: 64ch;
+}
+
+.action {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0f1320;
+  font-weight: 700;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+}

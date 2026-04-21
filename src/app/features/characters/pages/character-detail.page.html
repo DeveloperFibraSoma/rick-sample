@@ -1,0 +1,38 @@
+<app-page-header
+  eyebrow="Profile"
+  title="Character detail"
+  description="Detail view with subcomponents and a secondary action for stateful interactions."
+></app-page-header>
+
+@if (store.detailLoading()) {
+  <app-loading-state message="Loading detail..." />
+} @else if (store.detailError()) {
+  <app-empty-state
+    title="Detail unavailable"
+    [description]="store.detailError()!"
+    actionLabel="Back"
+    (action)="goBack()"
+  />
+} @else if (store.detail(); as character) {
+  <app-character-detail-hero
+    [character]="character"
+    [isFavorite]="store.isFavorite(character.id)"
+    (favorite)="toggleFavorite()"
+  />
+
+  <section class="details">
+    <article class="panel">
+      <h3>Core data</h3>
+      <dl>
+        <div><dt>Species</dt><dd>{{ character.species }}</dd></div>
+        <div><dt>Type</dt><dd>{{ character.type || 'N/A' }}</dd></div>
+        <div><dt>Origin</dt><dd>{{ character.origin.name }}</dd></div>
+        <div><dt>Location</dt><dd>{{ character.location.name }}</dd></div>
+      </dl>
+    </article>
+
+    <app-character-episode-list [episodes]="character.episode" />
+  </section>
+
+  <p class="meta">Created on {{ character.created }}</p>
+}

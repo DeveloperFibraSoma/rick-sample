@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #eef3f8;
+  --surface: #ffffff;
+  --surface-2: #f7fafc;
+  --text: #10182a;
+  --color-muted: #65738b;
+  --border: rgba(16, 24, 42, 0.1);
+  --accent: #7cf0c7;
+  --accent-2: #77a6ff;
+  --success: #1f9d68;
+  --warning: #d79b00;
+  --shadow: 0 12px 28px rgba(19, 29, 49, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(124, 240, 199, 0.25), transparent 28%),
+    radial-gradient(circle at top right, rgba(119, 166, 255, 0.2), transparent 22%),
+    linear-gradient(180deg, #eff4fa 0%, #e9eef5 100%);
+  color: var(--text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}

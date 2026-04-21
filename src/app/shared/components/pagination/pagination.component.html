@@ -1,0 +1,11 @@
+<nav class="pagination" aria-label="Pagination">
+  <button type="button" (click)="previous()" [disabled]="currentPage() <= 1">
+    Previous
+  </button>
+
+  <span>Page {{ currentPage() }} / {{ totalPages() }}</span>
+
+  <button type="button" (click)="next()" [disabled]="currentPage() >= totalPages()">
+    Next
+  </button>
+</nav>

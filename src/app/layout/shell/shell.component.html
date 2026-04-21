@@ -1,0 +1,28 @@
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <span>RM</span>
+      <div>
+        <strong>{{ appName }}</strong>
+        <p>Production-ready Angular 21 base</p>
+      </div>
+    </div>
+
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/characters" routerLinkActive="active">Characters</a>
+      <a routerLink="/search" routerLinkActive="active">Search</a>
+      <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+    </nav>
+  </aside>
+
+  <section class="content">
+    <header class="topbar">
+      <p>Standalone, signals, lazy loading, typed HTTP</p>
+    </header>
+
+    <main>
+      <router-outlet />
+    </main>
+  </section>
+</div>

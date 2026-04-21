@@ -1,0 +1,35 @@
+<app-page-header
+  eyebrow="Operations"
+  title="Dashboard"
+  description="Aggregated overview of the local character system, ready for real backend integration."
+></app-page-header>
+
+@if (store.loading()) {
+  <app-loading-state message="Loading dashboard metrics..." />
+} @else if (store.error()) {
+  <app-empty-state
+    title="Dashboard unavailable"
+    [description]="store.error()!"
+    actionLabel="Retry"
+    (action)="store.load()"
+  />
+} @else {
+  <section class="cards">
+    @for (card of store.cards(); track card.label) {
+      <app-stat-card [label]="card.label" [value]="card.value" [note]="card.note" [tone]="card.tone" />
+    }
+  </section>
+
+  <section class="panel">
+    <div>
+      <h2>Quick actions</h2>
+      <p>Navigate to the features that exercise the architectural decisions.</p>
+    </div>
+
+    <div class="actions">
+      <a routerLink="/characters">Open characters</a>
+      <a routerLink="/search">Open search</a>
+      <a routerLink="/favorites">Open favorites</a>
+    </div>
+  </section>
+}

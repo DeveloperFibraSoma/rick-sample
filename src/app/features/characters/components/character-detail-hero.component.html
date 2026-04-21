@@ -1,0 +1,16 @@
+<section class="hero">
+  <img
+    [src]="character().image"
+    [alt]="character().name"
+    appFallbackImage="assets/avatars/placeholder.svg"
+  />
+
+  <div class="copy">
+    <p class="eyebrow">{{ character().status | characterStatus }}</p>
+    <h2>{{ character().name }}</h2>
+    <p>{{ character().species }} · {{ character().gender }}</p>
+    <button type="button" (click)="favorite.emit()">
+      {{ isFavorite() ? 'Remove favorite' : 'Add favorite' }}
+    </button>
+  </div>
+</section>

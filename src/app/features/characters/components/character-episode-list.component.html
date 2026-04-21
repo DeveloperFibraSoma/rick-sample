@@ -1,0 +1,13 @@
+<section class="panel">
+  <h3>Episodes</h3>
+
+  @if (episodes().length > 0) {
+    <ul>
+      @for (episode of episodes(); track episode) {
+        <li>{{ episode }}</li>
+      }
+    </ul>
+  } @else {
+    <p>No episode data available.</p>
+  }
+</section>

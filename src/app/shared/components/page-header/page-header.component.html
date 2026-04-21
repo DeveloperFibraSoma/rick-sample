@@ -1,0 +1,15 @@
+<header class="header">
+  <div>
+    <p class="eyebrow">{{ eyebrow() }}</p>
+    <h1>{{ title() }}</h1>
+    @if (description()) {
+      <p class="description">{{ description() }}</p>
+    }
+  </div>
+
+  @if (actionLabel()) {
+    <button type="button" class="action" (click)="action.emit()">
+      {{ actionLabel() }}
+    </button>
+  }
+</header>

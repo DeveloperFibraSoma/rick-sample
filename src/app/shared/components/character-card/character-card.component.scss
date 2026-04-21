@@ -1,0 +1,59 @@
+.card {
+  position: relative;
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.favorite {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.content {
+  display: grid;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.meta {
+  padding: 0 1rem 1rem;
+}
+
+h3 {
+  margin: 0 0 0.3rem;
+}
+
+p,
+span {
+  display: block;
+  color: var(--color-muted);
+}
+
+span {
+  margin-top: 0.45rem;
+  color: var(--text);
+  font-weight: 600;
+}

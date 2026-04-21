@@ -1,0 +1,40 @@
+.empty {
+  display: grid;
+  place-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed var(--border);
+  border-radius: 1.2rem;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+
+.icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0f1320;
+  font-weight: 800;
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+p {
+  color: var(--color-muted);
+  max-width: 46ch;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  background: var(--text);
+  color: var(--surface);
+  cursor: pointer;
+}
